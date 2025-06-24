@@ -84,11 +84,11 @@ WHERE NOT BNAME = 'ANDHERI';
 --Or �M.G. ROAD� and Account No is less than 104 from deposit table. 
 SELECT ACTNO, CNAME, AMOUNT 
 FROM DEPOSIT
-WHERE BNAME IN ('AJNI' , 'KAROLBAGH', 'M.G. ROAG') AND ACTNO < 104;
+WHERE BNAME IN ('AJNI' , 'KAROLBAGH', 'M.G. ROAD') AND ACTNO < 104;
 
 --15. Display all loan no, customer from borrow table does not belong to �VIRAR� or �AJNI� branch. (use NOT 
 --IN) 
-SELECT LOANNO
+SELECT LOANNO, CNAME
 FROM BORROW
 WHERE BNAME NOT IN ('VIRAR', 'AJNI');
 
@@ -176,7 +176,9 @@ WHERE (AMOUNT > 3000) AND (LOANNO % 3 != 0);
 --between 100 and 110 and date is after '1-MAR-1995' or before '27-MAR-1996'. 
 SELECT * 
 FROM DEPOSIT 
-WHERE (AMOUNT > 2000) AND (ACTNO BETWEEN 100 AND 110) AND (ADATE > '1995-03-01' AND ADATE < '1996-03-27');
+WHERE (AMOUNT > 2000) 
+AND (ACTNO BETWEEN 100 AND 110) 
+AND (ADATE > '1995-03-01' OR ADATE < '1996-03-27');
 
 --5. Retrieve all odd/even value loan number from Borrow table.
 SELECT *

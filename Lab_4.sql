@@ -56,7 +56,7 @@ FROM PLAYER;
 SELECT *
 INTO PLAYER_INFO
 FROM CRICKET
-WHERE AGE IN (19, 23, 31, 37, 39, 41, 47, 53);
+WHERE AGE IN (19, 23, 31, 37, 39, 41, 47, 53) OR CITY IS NOT NULL;
 
 SELECT * 
 FROM PLAYER_INFO;
@@ -231,8 +231,8 @@ SET AMOUNT = AMOUNT + 1000;
 --4. Update the BORROW table to set the amount to 7000 and the branch name to 'CENTRAL' where the 
 --customer name is ‘MEHUL’ and the loan number is even. 
 UPDATE BORROW 
-SET AMOUNT = 7000,  BNAME = 'CENTERL'
-WHERE CNAME = 'MEHUL';
+SET AMOUNT = 7000,  BNAME = 'CENTRAL'
+WHERE CNAME = 'MEHUL' AND LOANNO % 2 = 0;
 
 --5. Update the DEPOSIT table to set the date to '2022-05-15' and the amount to 2500 for all accounts in 
 --‘VRCE’ and with an account number less than 105. 
