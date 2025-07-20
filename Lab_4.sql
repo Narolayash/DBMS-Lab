@@ -143,6 +143,8 @@ SELECT *
 FROM EMPLOYEE
 WHERE AGE > 32;
 
+
+
 --Update Operation 
 --Part – A:  
 
@@ -240,14 +242,44 @@ UPDATE DEPOSIT
 SET ADATE = '2022-05-15', AMOUNT = 2500 
 WHERE BNAME = 'VRCE' AND ACTNO < 105;
 
---Part – C:  
+--Part – C: 
+
+SELECT * 
+FROM BORROW;
 --1. Update amount of loan no 321 to NULL. (Use Borrow Table) 
+UPDATE BORROW
+SET AMOUNT = NULL
+WHERE LOANNO = 321;
+
 --2. Update branch name of KRANTI to NULL (Use Borrow Table) 
+UPDATE BORROW
+SET BNAME = NULL
+WHERE BNAME = 'KRANTI';
+
 --3. Display the name of borrowers whose Loan number is NULL. (Use Borrow Table) 
+SELECT CNAME
+FROM BORROW
+WHERE LOANNO IS NULL;
+
 --4. Display the Borrowers whose having branch. (Use Borrow Table) 
+SELECT CNAME 
+FROM BORROW 
+WHERE BNAME IS NOT NULL;
+
 --5. Update the Loan Amount to 5000, Branch to VRCE & Customer Name to Darshan whose loan no is 481. 
 --(Use Borrow Table) 
+UPDATE BORROW
+SET AMOUNT = 5000, BNAME = 'VRCE', CNAME = 'DARSHAN'
+WHERE LOANNO = 481;
+
 --6. Update the Deposit table and set the date to 01-01-2021 for all the depositor whose amount is less 
 --than 2000. 
+UPDATE DEPOSIT
+SET ADATE = '2021-01-01'
+WHERE AMOUNT < 2000;
+
 --7. Update the Deposit table and set the date to NULL & Branch name to ‘ANDHERI whose Account No is 
 --110. 
+UPDATE DEPOSIT
+SET DATE = NULL, BNAME = 'ANDHERI'
+WHERE ACTNO = 110;
