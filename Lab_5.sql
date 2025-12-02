@@ -53,11 +53,13 @@ ALTER TABLE DEPOSIT_DETAIL
 DROP COLUMN AOPENDATE;
 
 --3. Rename Column CNAME to CustomerName. 
-EXEC SP_RENAME 'DEPOSIT_DETAIL.CNAME', 'CUSTOMERNAEM';
+EXEC SP_RENAME 'DEPOSIT_DETAIL.CNAME', 'CUSTOMERNAME';
 
 --4. Add Column country.
 ALTER TABLE DEPOSIT_DETAIL
 ADD COUNTRY VARCHAR(50);
+
+
 
 --Part – C: 
 --Create following table using query according to the definition. 
@@ -81,11 +83,11 @@ FROM STUDENT_DETAIL;
 
 --1. Add two more columns City VARCHAR (20) (Not null) and Backlog INT (Null). 
 ALTER TABLE STUDENT_DETAIL
-ADD CITY VARCHAR(20) NOT NULL, BACKLOG INT;
+ADD CITY VARCHAR(20) NOT NULL DEFAULT 'Unknown', BACKLOG INT;
 
 --2. Add column department VARCHAR (20) Not Null.
 ALTER TABLE STUDENT_DETAIL
-ADD DEPARTMENT VARCHAR(20) NOT NULL;
+ADD DEPARTMENT VARCHAR(20) NOT NULL DEFAULT 'General';
 
 --3. Change the size of NAME column of student_detail from VARCHAR (25) to VARCHAR (35). 
 ALTER TABLE STUDENT_DETAIL
@@ -93,7 +95,7 @@ ALTER COLUMN NAME VARCHAR(35);
 
 --4. Change the data type DECIMAL to INT in CPI Column. 
 ALTER TABLE STUDENT_DETAIL
-ALTER COLUMN CPI DECIMAL(4, 2);
+ALTER COLUMN CPI INT;
 
 --5. Delete Column City from the student_detail table. 
 ALTER TABLE STUDENT_DETAIL
@@ -125,7 +127,7 @@ SELECT *
 FROM DEPOSIT_DETAIL;
 --1. Delete all the records of DEPOSIT_DETAIL table having amount less than and equals to 4000. 
 DELETE FROM DEPOSIT_DETAIL
-WHERE AMOUNT < 4000;
+WHERE AMOUNT <= 4000;
 
 --2. Delete all the accounts CHANDI BRANCH. 
 DELETE FROM DEPOSIT_DETAIL
@@ -137,7 +139,7 @@ WHERE ANO > 102 AND ANO < 105;
 
 --4. Delete all the accounts whose branch is ‘AJNI’ or ‘POWAI’ 
 DELETE FROM DEPOSIT_DETAIL
-WHERE BNAME = 'AJNI' OR BNAME = 'POWAL';
+WHERE BNAME = 'AJNI' OR BNAME = 'POWAI';
 
 --5. Delete all the accounts whose account number is NULL. 
 DELETE FROM DEPOSIT_DETAIL
@@ -152,6 +154,8 @@ TRUNCATE TABLE DEPOSIT_DETAIL;
 --8. Remove Deposit_Detail table. (Use Drop) 
 DROP TABLE DEPOSIT_DETAIL;
  
+
+
 --Part – B: 
 --Create following table using query according to the definition. 
 --EMPLOYEE_MASTER 
@@ -217,7 +221,7 @@ WHERE SALARY = (20000 * 0.5);
 
 --6. Delete the records of Employees whose City Name is not empty. 
 DELETE FROM EMPLOYEE_MASTER
-WHERE CITY IS NULL;
+WHERE CITY IS NOT NULL;
 
 --7. Delete all the records of Employee_MASTER table. (Use Truncate) 
 TRUNCATE TABLE EMPLOYEE_MASTER;

@@ -48,11 +48,12 @@ WHERE LastName LIKE '%tel';
 --5. Display all the students whose first name starts with ‘ha’ & ends with‘t’. 
 SELECT FirstName
 FROM STUDENT
-WHERE FirstName LIKE 'ha%t';
+WHERE FirstName LIKE 'Ha%t';
+
 --6. Display all the students whose first name starts with ‘k’ and third character is ‘y’. 
 SELECT FirstName
 FROM STUDENT
-WHERE FirstName LIKE 'k_y%';
+WHERE FirstName LIKE 'K_y%';
 
 --7. Display the name of students having no website and name consists of five characters. 
 SELECT FirstName
@@ -67,7 +68,7 @@ WHERE LastName LIKE '%ger%';
 --9. Display all the students whose city name starts with either ‘r’ or ‘b’. 
 SELECT FirstName
 FROM STUDENT 
-WHERE CITY LIKE '[r,b]%';
+WHERE CITY LIKE 'r%' OR CITY LIKE 'b%';
 
 --10. Display all the name students having websites. 
 SELECT FirstName 

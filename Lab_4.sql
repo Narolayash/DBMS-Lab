@@ -46,17 +46,17 @@ FROM IPL;
 SELECT *
 INTO PLAYER 
 FROM CRICKET
-WHERE (AGE > 30 AND CITY = 'MUMBAI') OR (AGE = 31 AND CITY != 'BOMBAY');
+WHERE (AGE > 30 AND CITY = 'Mumbai') OR (AGE = 31 AND CITY != 'Bombay');
 
 SELECT * 
 FROM PLAYER;
 
 --5. Select players whose age is a prime number or their city belongs to India Country, and insert them into 
 --a new table PLAYER_INFO. (Consider Cricketer age between 18 to 55) 
-SELECT *
+SELECT *	
 INTO PLAYER_INFO
 FROM CRICKET
-WHERE AGE IN (19, 23, 31, 37, 39, 41, 47, 53) OR CITY IS NOT NULL;
+WHERE AGE IN (19, 23, 29, 31, 37, 41, 43, 47, 53) OR CITY IS NOT NULL;
 
 SELECT * 
 FROM PLAYER_INFO;
@@ -74,7 +74,7 @@ FROM PLAYER_DATA;
 INSERT INTO IPL 
 SELECT *
 FROM CRICKET 
-WHERE CITY = 'JHARKHAND';
+WHERE CITY = 'Jharkhand';
 
 SELECT *
 FROM IPL;
@@ -254,7 +254,7 @@ WHERE LOANNO = 321;
 --2. Update branch name of KRANTI to NULL (Use Borrow Table) 
 UPDATE BORROW
 SET BNAME = NULL
-WHERE BNAME = 'KRANTI';
+WHERE CNAME = 'KRANTI';
 
 --3. Display the name of borrowers whose Loan number is NULL. (Use Borrow Table) 
 SELECT CNAME
@@ -281,5 +281,5 @@ WHERE AMOUNT < 2000;
 --7. Update the Deposit table and set the date to NULL & Branch name to ‘ANDHERI whose Account No is 
 --110. 
 UPDATE DEPOSIT
-SET DATE = NULL, BNAME = 'ANDHERI'
+SET ADATE = NULL, BNAME = 'ANDHERI'
 WHERE ACTNO = 110;

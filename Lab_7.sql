@@ -74,7 +74,7 @@ FROM EMP
 WHERE CITY = 'AHMEDABAD';
 
 --12. Find city wise highest salary. 
-SELECT CITY, MIN(SALARY) AS MAX_CITY_SALARY
+SELECT CITY, MAX(SALARY) AS MAX_CITY_SALARY
 FROM EMP
 GROUP BY CITY;
 
@@ -94,11 +94,11 @@ FROM EMP
 GROUP BY DEPARTMENT;
 
 --16. Give average salary of each department of EMP table without displaying the respective department 
+--name. 
 SELECT AVG(SALARY) AS SAL_DEP
 FROM EMP
 GROUP BY DEPARTMENT;
 
---name. 
 --17. Count the number of employees for each department in every city.
 SELECT CITY, DEPARTMENT, COUNT(EID)
 FROM EMP
@@ -108,15 +108,19 @@ GROUP BY CITY, DEPARTMENT;
 SELECT GENDER,SUM(SALARY)
 FROM EMP
 GROUP BY GENDER;
+
 --19. Give city wise maximum and minimum salary of female employees. 
 SELECT GENDER, MAX(SALARY), MIN(SALARY)
 FROM EMP
 WHERE GENDER = 'FEMALE'
 GROUP BY GENDER;
+
 --20. Calculate department, city, and gender wise average salary.
 SELECT DEPARTMENT, CITY, GENDER, AVG(SALARY)
 FROM EMP
 GROUP BY DEPARTMENT, CITY, GENDER;
+
+
 
 --Part – B: 
 --1. Count the number of employees living in Rajkot.

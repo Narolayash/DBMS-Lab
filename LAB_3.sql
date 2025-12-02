@@ -47,6 +47,8 @@ SELECT CNAME
 FROM CUSTOMERS 
 WHERE CITY = 'NAGPUR' OR CITY = 'DELHI';
 
+SELECT * FROM CUSTOMERS;
+
 SELECT CNAME 
 FROM CUSTOMERS
 WHERE CITY IN('NAGPUR', 'DELHI');
@@ -80,11 +82,15 @@ SELECT *
 FROM DEPOSIT
 WHERE NOT BNAME = 'ANDHERI';
 
+SELECT *
+FROM DEPOSIT
+WHERE BNAME <> 'ANDHERI';
+
 --14. Display Account No, Customer Name & Amount of such customers who belongs to �AJNI�, �KAROLBAGH� 
 --Or �M.G. ROAD� and Account No is less than 104 from deposit table. 
 SELECT ACTNO, CNAME, AMOUNT 
 FROM DEPOSIT
-WHERE BNAME IN ('AJNI' , 'KAROLBAGH', 'M.G. ROAD') AND ACTNO < 104;
+WHERE BNAME IN ('AJNI', 'KAROLBAGH', 'M.G. ROAD') AND ACTNO < 104;
 
 --15. Display all loan no, customer from borrow table does not belong to �VIRAR� or �AJNI� branch. (use NOT 
 --IN) 
@@ -178,7 +184,7 @@ SELECT *
 FROM DEPOSIT 
 WHERE (AMOUNT > 2000) 
 AND (ACTNO BETWEEN 100 AND 110) 
-AND (ADATE > '1995-03-01' OR ADATE < '1996-03-27');
+AND (ADATE > '1995-03-01' AND ADATE < '1996-03-27');
 
 --5. Retrieve all odd/even value loan number from Borrow table.
 SELECT *
