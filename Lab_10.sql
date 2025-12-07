@@ -107,7 +107,10 @@ CREATE VIEW COMPUTERVIEW
 AS
 SELECT * FROM STU_INFO
 WHERE BRANCH='CE'
+
+
 --Part – C:
+
 --1.
 --Create a view Result_EC that displays the name and SPI of students with SPI less than 5 of branch EC.
 CREATE VIEW Result_EC

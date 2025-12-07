@@ -114,10 +114,39 @@ JOIN Dept D
 ON P.DepartmentID = D.DepartmentID
 GROUP BY P.City, D.DepartmentName;
 
---3. Find all persons who do not belong to any department. 
+--3. Find all persons who do not belong to any department.
+SELECT PersonName
+FROM Person
+WHERE DepartmentID IS NULL; 
 
 --4. Find all departments whose total salary is exceeding 100000. 
+SELECT D.DepartmentName, SUM(P.Salary)
+FROM Person P
+JOIN Dept D
+ON P.DepartmentID = D.DepartmentID
+GROUP BY D.DepartmentName
+HAVING SUM(P.Salary) > 100000;
+
 --Part – C: 
---1. List all departments who have no person. 
---2. List out department names in which more than two persons are working. 
+--1. List all departments who have no person.
+SELECT D.DepartmentName, COUNT(P.PersonID)
+FROM Person P
+Join Dept D
+On P.DepartmentID = D.DepartmentID
+GROUP BY D.DepartmentName
+HAVING COUNT(P.PersonID) = 0;
+
+--2. List out department names in which more than two persons are working.
+SELECT D.DepartmentName, COUNT(P.PersonID)
+FROM Person P
+Join Dept D
+On P.DepartmentID = D.DepartmentID
+GROUP BY D.DepartmentName
+HAVING COUNT(P.PersonID) > 2;
+
 --3. Give a 10% increment in the computer department employee’s salary. (Use Update)
+UPDATE Person
+SET Person.Salary = Person.Salary + (Person.Salary * 0.1)
+WHERE Person.DepartmentID = (SELECT DepartmentID 
+								FROM Dept
+								WHERE DepartmentName = 'Computer';);

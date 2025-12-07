@@ -89,6 +89,7 @@ ON A.AuthorID = B.AuthorID
 GROUP BY A.AuthorName
 ORDER BY MAX(B.Price) DESC;
 
+--Chalse baki hase to 
 --Part – C: Create table as per following schema with proper validation and try to insert data which violate your 
 --validation. 
 --1. Emp_info(Eid, Ename, Did, Cid, Salary, Experience) 
